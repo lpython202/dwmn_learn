@@ -60,7 +60,10 @@ def main():
     user_input = args.link
 
     if is_bitlink(user_input, TOKEN):
-        print('Количество кликов:', count_clicks(TOKEN, user_input))
+        try:
+            print('Количество кликов:', count_clicks(TOKEN, user_input))
+        except requests.exceptions.HTTPError:
+            print('Некорректная ссылка')
     else:
         try:
             print('Битлинк', shorten_link(TOKEN, user_input))

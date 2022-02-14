@@ -45,11 +45,7 @@ def is_bitlink(link, token):
         'Authorization': 'Bearer {}'.format(token),
     }
     response = requests.get(api_url, headers=headers)
-    try:
-        response.raise_for_status()
-    except requests.exceptions.HTTPError:
-        return False
-    return True
+    return response.ok
 
 
 def main():

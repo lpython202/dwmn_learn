@@ -5,8 +5,6 @@ import os
 
 from dotenv import load_dotenv
 
-load_dotenv()
-
 TOKEN = os.environ['TOKEN']
 
 
@@ -55,6 +53,7 @@ def is_bitlink(link, token):
 
 
 def main():
+    load_dotenv()
     parser = argparse.ArgumentParser()
     parser.add_argument('link')
     args = parser.parse_args()

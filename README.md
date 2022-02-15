@@ -6,9 +6,9 @@
 
 Создать файл `.env` в корне проекта с содержимым `BITLY_TOKEN=(ваш токен)`.
 
-Получить токен: Регистрируйтесь на Bitly через e-mai. 
+Получить токен: Регистрируйтесь на [Bitly](https://app.bitly.com/) через e-mai. 
 
-По ссылке https://app.bitly.com/settings/apps/   создайте токен (GENERIC ACCESS TOKEN — нужный тип токена)
+По [ссылке](https://app.bitly.com/settings/apps/)   создайте токен (GENERIC ACCESS TOKEN — нужный тип токена)
 
 
 Python3 должен быть уже установлен. 

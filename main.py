@@ -5,8 +5,6 @@ import os
 
 from dotenv import load_dotenv
 
-TOKEN = os.environ['BITLY_TOKEN']
-
 
 def shorten_link(token, url):
     api_url = 'https://api-ssl.bitly.com/v4/shorten'
@@ -50,19 +48,20 @@ def is_bitlink(link, token):
 
 def main():
     load_dotenv()
+    token = os.getenv('BITLY_TOKEN')
     parser = argparse.ArgumentParser()
     parser.add_argument('link')
     args = parser.parse_args()
     user_input = args.link
 
-    if is_bitlink(user_input, TOKEN):
+    if is_bitlink(user_input, token):
         try:
-            print('Количество кликов:', count_clicks(TOKEN, user_input))
+            print('Количество кликов:', count_clicks(token, user_input))
         except requests.exceptions.HTTPError:
             print('Некорректная ссылка')
     else:
         try:
-            print('Битлинк', shorten_link(TOKEN, user_input))
+            print('Битлинк', shorten_link(token, user_input))
         except requests.exceptions.HTTPError:
             print('Некорректная ссылка')
 
